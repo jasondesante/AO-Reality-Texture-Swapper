@@ -108,7 +108,7 @@ function TestSchemaTags()
               "Content4": {
                 "type": "null",
                 "title": "Try it!",
-                "description": "It's really that easy! Give it a try!"
+                "description": "It's really that easy! Give it a try! Also check out the GitHub page here: https://github.com/jasondesante/AO-Reality-Texture-Swapper"
               }
             }
           }
