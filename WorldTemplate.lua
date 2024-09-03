@@ -12,6 +12,7 @@ RealityInfo = {
 RealityParameters = {
     ['2D-Tile-0'] = {
         Version = 0,
+        -- PlayerSpriteTxId = 'DZD1iQjfaqDrbSfgj4qK-IAKYDNayn3-5I4VkeYWSMk', -- Wizard 7246
         Spawn = {5, 7},
         -- This is a tileset themed to Llama Land main island
         Tileset = {
@@ -68,6 +69,21 @@ RealityEntitiesStatic = {
             SpriteTxId = 'wNRKKsMPLJaNaTFswhst5zgIhVapByv-olwFIZnDuv0' -- Yellow elephant 1
         }
     },
+
+    -- Character Swap Llama
+    ['JDzwuZ1DwhWHFE0u-AwbVTwFchU0fTtiVCLTkIKiMlk'] = {
+        Position = {5, 11},
+        Type = 'Avatar',
+        Metadata = {
+            DisplayName = 'Character Select',
+            Interaction = {
+                Type = 'SchemaForm',
+                Id = 'ChangeCharacter'
+            },
+            SpriteTxId = 'jTDMJ_VsfCgfWeINHmSGNkiP3tIDqEHo0HM02m2HaXk'
+        }
+    },
+
 
     -- TextureWelcomeLlama
     ['bGDwsmKpxxiTf-2zgRFNQ1rQAo88h0k8dt6dv-t45r8'] = {
@@ -128,7 +144,7 @@ RealityEntitiesStatic = {
     },
 
 
-    -- Extra Llama
+    -- Extra NPCs ---------------------
     ['Extra Llama 1'] = {
         Position = {2, 2},
         Type = 'Avatar',
@@ -266,22 +282,9 @@ RealityEntitiesStatic = {
             SpriteTxId = '__qg3RIK_wGsMiPhu3YZpcoiCjSVWMR34yqi3u4vp-s' -- agent elephant 2
         }
     },
-    ['Test Willow'] = {
-        Position = {5, 11},
-        Type = 'Avatar',
-        Metadata = {
-            DisplayName = '',
-            Interaction = {
-                Type = 'Default',
-            },
-            -- SpriteTxId = 'IbuFM-zVWKqvd52Ns27eG3TP-Ery3YtDCs7_NEZEIrA' -- test willow
-            SpriteTxId = 'Ny2Q-0eBfxVrvqFd4C3sXxhmLxAdt6fN9vhN6SgVttE' -- test willow 1
-            -- SpriteTxId = '4ziu2QYzAGux9gDhqFZfZGw_MOBFkzoIAN6oJ5sdhns' -- test willow 2
-        }
-    },
 
 
-    -- Warps
+    -- Warps --------------------
     ['Cave_Exit2'] = {
         Position = {22, 55},
         Type = 'Avatar',
@@ -353,6 +356,19 @@ Handlers.add('ChangeTileMap', Handlers.utils.hasMatchingTag('Action', 'ChangeTil
         RealityParameters['2D-Tile-0'].Tilemap.TxId = tostring(msg.Data)
         print('Updated TxId to:')
         print(RealityParameters['2D-Tile-0'].Tilemap.TxId)
+    else
+        print('Invalid data provided for TxId.')
+    end
+end)
+
+
+Handlers.add('ChangeCharacter', Handlers.utils.hasMatchingTag('Action', 'ChangeCharacter'), function(msg)
+    print('ChangeCharacter')
+
+    if type(msg.Data) == 'string' and #msg.Data > 0 then
+        RealityParameters['2D-Tile-0'].PlayerSpriteTxId = tostring(msg.Data)
+        print('Updated TxId to:')
+        print(RealityParameters['2D-Tile-0'].PlayerSpriteTxId)
     else
         print('Invalid data provided for TxId.')
     end
