@@ -314,6 +314,20 @@ RealityEntitiesStatic = {
                 Size = {1, 1}
             }
         }
+    },
+    ['To_DJCW_World'] = {
+        Position = {8, 12},
+        Type = 'Avatar',
+        Metadata = {
+            DisplayName = 'To DJCW Hub',
+            SpriteTxId = 'VHEU8C0hdLoML5jlYO6aF21mvaoaWjb7JyFX6quO8W4', -- door
+            Interaction = {
+                Target = "Rn-jqmz3dlHsQb9oigu0ob22PzcVLinUO2m-H9lKW2E", -- DJCW Test World
+                Position = {6, 14},
+                Type = 'Warp',
+                Size = {1, 1}
+            }
+        }
     }
 
 }
