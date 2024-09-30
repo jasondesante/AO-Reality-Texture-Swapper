@@ -316,7 +316,7 @@ RealityEntitiesStatic = {
         }
     },
     ['To_DJCW_World'] = {
-        Position = {8, 12},
+        Position = {7, 12},
         Type = 'Avatar',
         Metadata = {
             DisplayName = 'To DJCW Hub',
